@@ -6,6 +6,7 @@ import { UpdateNotificationRequest } from '../../domain/schemas/dto/request/upda
 import { NotificationResponse } from '../../domain/schemas/dto/response/notification.response';
 import { CreateLogsNotificationsRequest } from '../../domain/schemas/dto/request/create.logs-notifications.request';
 import { LogsNotificationsModel } from '../../domain/schemas/model/logs-notifications.model';
+import { v4 as uuidv4 } from 'uuid';
 
 export class NotificationMapper {
   static fromCreateLogsNotificationsRequestToModel(
@@ -38,7 +39,7 @@ export class NotificationMapper {
     priority: PriorityModel,
   ): NotificationModel {
     return new NotificationModel(
-      0, // idNotification is not set during creation
+      uuidv4(), // idNotification is not set during creation
       notificationRequest.email,
       notificationRequest.phone,
       notificationRequest.subject,
@@ -53,7 +54,7 @@ export class NotificationMapper {
   }
 
   static fromUpdateNotificationRequestToModel(
-    idNotification: number,
+    idNotification: string,
     notificationRequest: UpdateNotificationRequest,
     typeNotification: TypeNotificationModel,
     priority: PriorityModel,

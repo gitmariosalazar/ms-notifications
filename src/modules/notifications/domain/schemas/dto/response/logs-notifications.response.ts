@@ -1,5 +1,5 @@
 export interface LogsNotificationsResponse {
-  idLogsNotifications: number;
+  idLogsNotifications: string;
   log: string;
   message: string;
   subject: string;
@@ -7,7 +7,7 @@ export interface LogsNotificationsResponse {
   email: string;
   module: string;
   eventType: string;
-  userId?: number;
+  userId?: string;
   userEmail?: string;
   ipAddress?: string;
   userAgent?: string;

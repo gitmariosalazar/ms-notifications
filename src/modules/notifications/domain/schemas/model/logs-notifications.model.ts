@@ -7,7 +7,7 @@ export class LogsNotificationsModel {
   private email: string;
   private module: string;
   private eventType: string;
-  private userId?: number;
+  private userId?: string;
   private userEmail?: string;
   private ipAddress?: string;
   private userAgent?: string;
@@ -26,7 +26,7 @@ export class LogsNotificationsModel {
     email: string,
     module: string,
     eventType: string,
-    userId?: number,
+    userId?: string,
     userEmail?: string,
     ipAddress?: string,
     userAgent?: string,
@@ -118,11 +118,11 @@ export class LogsNotificationsModel {
     this.eventType = eventType;
   }
 
-  public getUserId(): number | undefined {
+  public getUserId(): string | undefined {
     return this.userId;
   }
 
-  public setUserId(userId: number | undefined): void {
+  public setUserId(userId: string | undefined): void {
     this.userId = userId;
   }
 

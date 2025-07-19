@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { string } from 'joi';
 
 export class CreateLogsNotificationsRequest {
   @ApiProperty({
@@ -56,11 +57,11 @@ export class CreateLogsNotificationsRequest {
   eventType: string;
   @ApiProperty({
     description: 'User ID associated with the notification',
-    example: 1,
+    example: '123e4567-e89b-12d3-a456-426614174000',
     required: false,
-    type: Number,
+    type: string,
   })
-  userId?: number;
+  userId?: string;
   @ApiProperty({
     description: 'User email associated with the notification',
     example: 'mario@gmail.com',
@@ -112,7 +113,7 @@ export class CreateLogsNotificationsRequest {
     email: string,
     module: string,
     eventType: string,
-    userId?: number,
+    userId?: string,
     userEmail?: string,
     ipAddress?: string,
     userAgent?: string,

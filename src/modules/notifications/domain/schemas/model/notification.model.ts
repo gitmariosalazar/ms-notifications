@@ -2,7 +2,7 @@ import { PriorityModel } from 'src/modules/priority/domain/schemas/model/priorit
 import { TypeNotificationModel } from 'src/modules/type-notification/domain/schemas/model/type-notification.model';
 
 export class NotificationModel {
-  private idNotification: number;
+  private idNotification: string;
   private email: string;
   private phone: string;
   private subject: string;
@@ -17,7 +17,7 @@ export class NotificationModel {
   private updatedAt: Date;
 
   constructor(
-    idNotification: number,
+    idNotification: string,
     email: string,
     phone: string,
     subject: string,
@@ -46,11 +46,11 @@ export class NotificationModel {
     this.updatedAt = updatedAt || new Date();
   }
 
-  public getIdNotification(): number {
+  public getIdNotification(): string {
     return this.idNotification;
   }
 
-  public setIdNotification(idNotification: number): void {
+  public setIdNotification(idNotification: string): void {
     this.idNotification = idNotification;
   }
 

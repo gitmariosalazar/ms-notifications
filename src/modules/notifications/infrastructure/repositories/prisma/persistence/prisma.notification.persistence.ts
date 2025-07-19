@@ -104,7 +104,7 @@ export class PrismaNotificationPersistence
   }
 
   async update(
-    idNotifications: number,
+    idNotifications: string,
     notification: NotificationModel,
   ): Promise<NotificationResponse | null> {
     try {
@@ -150,7 +150,7 @@ export class PrismaNotificationPersistence
   }
 
   async findById(
-    idNotifications: number,
+    idNotifications: string,
   ): Promise<NotificationResponse | null> {
     try {
       const notification = await this.prismaService.notification.findUnique({
@@ -215,7 +215,7 @@ export class PrismaNotificationPersistence
     }
   }
 
-  async delete(idNotifications: number): Promise<boolean> {
+  async delete(idNotifications: string): Promise<boolean> {
     try {
       const deleted = await this.prismaService.notification.delete({
         where: { id_notifications: idNotifications },
@@ -226,7 +226,7 @@ export class PrismaNotificationPersistence
     }
   }
 
-  async existsById(idNotifications: number): Promise<boolean> {
+  async existsById(idNotifications: string): Promise<boolean> {
     try {
       const notification = await this.prismaService.notification.findUnique({
         where: { id_notifications: idNotifications },

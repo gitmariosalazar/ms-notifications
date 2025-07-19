@@ -6,20 +6,20 @@ import { NotificationModel } from '../schemas/model/notification.model';
 export interface InterfaceNotificationRepository {
   findAll(): Promise<NotificationResponse[]>;
 
-  findById(idNotifications: number): Promise<NotificationResponse | null>;
+  findById(idNotifications: string): Promise<NotificationResponse | null>;
 
   findByEmail(email: string): Promise<NotificationResponse[]>;
 
   create(notification: NotificationModel): Promise<NotificationResponse | null>;
 
   update(
-    idNotifications: number,
+    idNotifications: string,
     notification: NotificationModel,
   ): Promise<NotificationResponse | null>;
 
-  delete(idNotifications: number): Promise<boolean>;
+  delete(idNotifications: string): Promise<boolean>;
 
-  existsById(idNotifications: number): Promise<boolean>;
+  existsById(idNotifications: string): Promise<boolean>;
 
   sendAndCreateNotification(
     notification: LogsNotificationsModel,

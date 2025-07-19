@@ -2,7 +2,7 @@ import { PriorityResponse } from 'src/modules/priority/domain/schemas/dto/respon
 import { TypeNotificationResponse } from 'src/modules/type-notification/domain/schemas/dto/response/type-notification.response';
 
 export interface NotificationResponse {
-  idNotifications: number;
+  idNotifications: string;
   email: string;
   phone: string;
   subject: string;

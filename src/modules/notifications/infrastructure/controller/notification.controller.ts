@@ -55,7 +55,7 @@ export class NotificationController {
   async updateNotification(
     @Payload()
     data: {
-      idNotifications: number;
+      idNotifications: string;
       notification: UpdateNotificationRequest;
     },
   ) {
@@ -81,7 +81,7 @@ export class NotificationController {
   })
   @MessagePattern('notification.find-by-id')
   async findNotificationById(
-    @Payload('idNotifications') idNotifications: number,
+    @Payload('idNotifications') idNotifications: string,
   ) {
     return this.notificationService.findById(idNotifications);
   }
@@ -105,7 +105,7 @@ export class NotificationController {
   })
   @MessagePattern('notification.delete')
   async deleteNotification(
-    @Payload('idNotifications') idNotifications: number,
+    @Payload('idNotifications') idNotifications: string,
   ) {
     return this.notificationService.delete(idNotifications);
   }

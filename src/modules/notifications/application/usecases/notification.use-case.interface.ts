@@ -7,7 +7,7 @@ import { NotificationResponse } from '../../domain/schemas/dto/response/notifica
 export interface InterfaceNotificationUseCase {
   findAll(): Promise<NotificationResponse[]>;
 
-  findById(idNotifications: number): Promise<NotificationResponse | null>;
+  findById(idNotifications: string): Promise<NotificationResponse | null>;
 
   findByEmail(email: string): Promise<NotificationResponse[]>;
 
@@ -16,13 +16,13 @@ export interface InterfaceNotificationUseCase {
   ): Promise<NotificationResponse | null>;
 
   update(
-    idNotifications: number,
+    idNotifications: string,
     notification: UpdateNotificationRequest,
   ): Promise<NotificationResponse | null>;
 
-  delete(idNotifications: number): Promise<boolean>;
+  delete(idNotifications: string): Promise<boolean>;
 
-  existsById(idNotifications: number): Promise<boolean>;
+  existsById(idNotifications: string): Promise<boolean>;
   sendAndCreateNotification(
     notification: CreateLogsNotificationsRequest,
   ): Promise<LogsNotificationsResponse | null>;

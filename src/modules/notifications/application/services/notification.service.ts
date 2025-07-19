@@ -249,11 +249,11 @@ export class NotificationUseCaseService
   }
 
   async update(
-    idNotifications: number,
+    idNotifications: string,
     notification: UpdateNotificationRequest,
   ): Promise<NotificationResponse | null> {
     try {
-      if (!idNotifications || idNotifications <= 0) {
+      if (!idNotifications || idNotifications.trim() === '') {
         throw new RpcException({
           statusCode: statusCode.BAD_REQUEST,
           message: 'Invalid notification ID or ID not provided.',
@@ -391,15 +391,15 @@ export class NotificationUseCaseService
     }
   }
 
-  async existsById(idNotifications: number): Promise<boolean> {
+  async existsById(idNotifications: string): Promise<boolean> {
     return this.notificationRepository.existsById(idNotifications);
   }
 
   async findById(
-    idNotifications: number,
+    idNotifications: string,
   ): Promise<NotificationResponse | null> {
     try {
-      if (!idNotifications || idNotifications <= 0) {
+      if (!idNotifications || idNotifications.trim() === '') {
         throw new RpcException({
           statusCode: statusCode.BAD_REQUEST,
           message: 'Invalid notification ID or ID not provided.',
@@ -455,9 +455,9 @@ export class NotificationUseCaseService
     }
   }
 
-  async delete(idNotifications: number): Promise<boolean> {
+  async delete(idNotifications: string): Promise<boolean> {
     try {
-      if (!idNotifications || idNotifications <= 0) {
+      if (!idNotifications || idNotifications.trim() === '') {
         throw new RpcException({
           statusCode: statusCode.BAD_REQUEST,
           message: 'Invalid notification ID or ID not provided.',
